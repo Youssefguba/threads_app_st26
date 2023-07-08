@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "860229506469",
+    "project_id": "threads-app-st26",
+    "storage_bucket": "threads-app-st26.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:860229506469:android:aefcc05b13977bb041c44c",
+        "android_client_info": {
+          "package_name": "com.instant.threads.st26.threads_app_st26"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "860229506469-m1qnk9an9n7kne9luhokuuo5pn5bneok.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCV8RTCsy8PjYH2Nc7yeHF8crifxpN8sxo"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "860229506469-m1qnk9an9n7kne9luhokuuo5pn5bneok.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

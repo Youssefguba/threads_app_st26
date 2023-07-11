@@ -14,7 +14,15 @@
       },
       "oauth_client": [
         {
-          "client_id": "860229506469-m1qnk9an9n7kne9luhokuuo5pn5bneok.apps.googleusercontent.com",
+          "client_id": "860229506469-i5pha5gduhe99144s8qi694puik86t8m.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.instant.threads.st26.threads_app_st26",
+            "certificate_hash": "efebcf442e862ecda4b93692b38f6285b2cdef2e"
+          }
+        },
+        {
+          "client_id": "860229506469-hughednp6o7j6p4i93s9c4ghkghkf7k0.apps.googleusercontent.com",
           "client_type": 3
         }
       ],
@@ -27,8 +35,15 @@
         "appinvite_service": {
           "other_platform_oauth_client": [
             {
-              "client_id": "860229506469-m1qnk9an9n7kne9luhokuuo5pn5bneok.apps.googleusercontent.com",
+              "client_id": "860229506469-hughednp6o7j6p4i93s9c4ghkghkf7k0.apps.googleusercontent.com",
               "client_type": 3
+            },
+            {
+              "client_id": "860229506469-s9f87b9qqgoacb9sfmcvs0luri164sfb.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.instant.threads.st26.threadsAppSt26"
+              }
             }
           ]
         }

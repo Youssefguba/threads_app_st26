@@ -29,6 +29,8 @@ class HomeScreen extends StatelessWidget {
                 Text(name.toString()),
                 TextButton(
                   onPressed: () {
+                    // context.read<PostCubit>().addPost(controller.text);
+
                     FirebaseAuth.instance.signOut();
                   },
                   child: const Text('Logout!'),

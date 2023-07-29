@@ -1,3 +1,4 @@
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:google_sign_in/google_sign_in.dart';
@@ -46,7 +47,7 @@ class LoginScreen extends StatelessWidget {
     );
   }
 
-  Future<UserCredential> signInWithGoogle() async {
+  Future<void> signInWithGoogle() async {
     // Trigger the authentication flow
     final GoogleSignInAccount? googleUser = await GoogleSignIn().signIn();
 
@@ -60,7 +61,26 @@ class LoginScreen extends StatelessWidget {
       idToken: googleAuth?.idToken,
     );
 
+
     // Once signed in, return the UserCredential
-    return await FirebaseAuth.instance.signInWithCredential(credential);
+    await FirebaseAuth.instance.signInWithCredential(credential);
+
+    addDataToFirestore(googleUser);
+  }
+
+  void addDataToFirestore(GoogleSignInAccount? googleUser) {
+    final name = googleUser?.displayName;
+    final photo = googleUser?.photoUrl;
+
+    final userId = FirebaseAuth.instance.currentUser?.uid;
+
+    final usersCollection = FirebaseFirestore.instance.collection('users');
+
+    usersCollection.doc(userId).set(
+      {
+        'username': name,
+        'photo': photo,
+      },
+    );
   }
 }

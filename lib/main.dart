@@ -1,7 +1,7 @@
 import 'package:firebase_core/firebase_core.dart';
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:threads_app_st26/screens/intro_screen.dart';
+import 'package:threads_app_st26/utils/ui/themes.dart';
 
 import 'firebase_options.dart';
 import 'screens/login_screen.dart';
@@ -11,7 +11,7 @@ void main() async {
   await Firebase.initializeApp(
     options: DefaultFirebaseOptions.currentPlatform,
   );
-  runApp(MyApp());
+  runApp(const MyApp());
 }
 
 class MyApp extends StatelessWidget {
@@ -19,8 +19,10 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const MaterialApp(
-      home: IntroScreen(),
+    return MaterialApp(
+      home: const IntroScreen(),
+      theme: lightTheme,
+      darkTheme: darkTheme,
     );
   }
 }

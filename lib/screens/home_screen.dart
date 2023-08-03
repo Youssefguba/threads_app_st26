@@ -1,45 +1,50 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
+import 'package:threads_app_st26/screens/new_post_screen.dart';
+import 'package:threads_app_st26/screens/profile_screen.dart';
+import 'package:threads_app_st26/screens/time_line_screen.dart';
 
-class HomeScreen extends StatelessWidget {
+class HomeScreen extends StatefulWidget {
   const HomeScreen({super.key});
 
   @override
+  State<HomeScreen> createState() => _HomeScreenState();
+}
+
+class _HomeScreenState extends State<HomeScreen> {
+  int currentIndex = 0;
+  final _screens = const [
+    TimelineScreen(),
+    NewPostScreen(),
+    ProfileScreen(),
+  ];
+
+  @override
   Widget build(BuildContext context) {
-    final db = FirebaseFirestore.instance.collection('users');
-    final uid = FirebaseAuth.instance.currentUser?.uid;
     return Scaffold(
-      body: Center(
-        child: FutureBuilder<DocumentSnapshot>(
-          future: db.doc(uid).get(),
-          builder: (context, snapshot) {
-            final data = snapshot.data?.data() as Map<String, dynamic>;
-
-            final name = data['username'];
-            final photo = data['photo'];
-
-            return Column(
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: [
-                CircleAvatar(
-                  radius: 40,
-                  backgroundImage: NetworkImage(photo),
-                ),
-                Text(name.toString()),
-                TextButton(
-                  onPressed: () {
-                    // context.read<PostCubit>().addPost(controller.text);
-
-                    FirebaseAuth.instance.signOut();
-                  },
-                  child: const Text('Logout!'),
-                ),
-              ],
+      bottomNavigationBar: BottomNavigationBar(
+        onTap: (index) {
+          if (index == 1) {
+            Navigator.of(context).push(
+              MaterialPageRoute(
+                builder: (context) => const NewPostScreen(),
+              ),
             );
-          },
-        ),
+            return;
+          }
+          setState(() => currentIndex = index);
+        },
+        type: BottomNavigationBarType.fixed,
+        currentIndex: currentIndex,
+        items: const [
+          BottomNavigationBarItem(icon: Icon(Icons.home), label: ''),
+          BottomNavigationBarItem(icon: Icon(Icons.post_add), label: ''),
+          BottomNavigationBarItem(
+              icon: Icon(Icons.person_2_outlined), label: ''),
+        ],
       ),
+      body: _screens[currentIndex],
     );
   }
 }

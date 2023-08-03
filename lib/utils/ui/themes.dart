@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:threads_app_st26/utils/ui/fonts.dart';
 
 ThemeData lightTheme = ThemeData(
+  useMaterial3: true,
   fontFamily: FontsHelper.sfPro,
   colorScheme: ColorScheme.fromSeed(
     seedColor: Colors.white,
@@ -24,6 +25,7 @@ ThemeData lightTheme = ThemeData(
 );
 
 ThemeData darkTheme = ThemeData(
+  useMaterial3: true,
   fontFamily: FontsHelper.sfPro,
   colorScheme: ColorScheme.fromSeed(
     seedColor: Colors.black,

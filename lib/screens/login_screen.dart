@@ -84,3 +84,6 @@ class LoginScreen extends StatelessWidget {
     );
   }
 }
+
+// New Post Screen --> Content --> Save/Upload Firestore
+// Timeline --> Display/Get Content from Firestore

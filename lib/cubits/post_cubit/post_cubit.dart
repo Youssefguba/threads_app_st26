@@ -91,7 +91,6 @@ class PostCubit extends Cubit<PostState> {
     }
   }
 
-
   void getAllPosts() async {
     emit(LoadingPosts());
     final snapshot = await FirestoreCollections.postsCollection.get();
